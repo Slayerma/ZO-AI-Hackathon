@@ -33,4 +33,4 @@ def CustomChatGPT(user_input):
 
 # Gradio interface
 demo = gradio.Interface(fn=CustomChatGPT, inputs="text", outputs="text", title="Hotel Service")
-demo.launch(share=True)
+demo.launch(share = True)

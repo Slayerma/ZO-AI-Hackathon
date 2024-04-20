@@ -1,0 +1,129 @@
+[
+    {
+      "id": "578c119e-1771-466e-ae82-bdf08c0ea610",
+      "data": [
+        {
+          "text": "Can I reserve a room for ",
+          "userDefined": false
+        },
+        {
+          "text": "12",
+          "meta": "@sys.number",
+          "alias": "guests",
+          "userDefined": false
+        },
+        {
+          "text": " people ",
+          "userDefined": false
+        },
+        {
+          "text": "tomorrow",
+          "meta": "@sys.date",
+          "alias": "date",
+          "userDefined": false
+        },
+        {
+          "text": " at ",
+          "userDefined": false
+        },
+        {
+          "text": "2 pm",
+          "meta": "@sys.time",
+          "alias": "time",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en",
+      "updated": 0
+    },
+    {
+      "id": "45c07284-b17e-46ad-b645-a9116d58042e",
+      "data": [
+        {
+          "text": "Make Reservation for ",
+          "userDefined": false
+        },
+        {
+          "text": "tomorrow",
+          "meta": "@sys.date",
+          "alias": "date",
+          "userDefined": false
+        },
+        {
+          "text": " at ",
+          "userDefined": false
+        },
+        {
+          "text": "6 pm",
+          "meta": "@sys.time",
+          "alias": "time",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en",
+      "updated": 0
+    },
+    {
+      "id": "5ac627ff-b9c5-4b01-ace2-f83e9c56e7e5",
+      "data": [
+        {
+          "text": "Make a Reservation for ",
+          "userDefined": false
+        },
+        {
+          "text": "5",
+          "meta": "@sys.number",
+          "alias": "guests",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en",
+      "updated": 0
+    },
+    {
+      "id": "e985b241-a448-4d1f-92db-03936dac2797",
+      "data": [
+        {
+          "text": "Reserve a room",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en",
+      "updated": 0
+    },
+    {
+      "id": "1c803832-ecaa-453a-8bd0-abcd93374128",
+      "data": [
+        {
+          "text": "Make Reservations",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en",
+      "updated": 0
+    },
+    {
+      "id": "5298340a-008b-4302-b3ff-15f3d32bab8c",
+      "data": [
+        {
+          "text": "Can I book a room?",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en",
+      "updated": 0
+    }
+  ]
+  
