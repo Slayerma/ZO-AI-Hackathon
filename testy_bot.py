@@ -1,13 +1,19 @@
 
 import os
+ 
+from dotenv import load_dotenv, find_dotenv
+
+_ = load_dotenv(find_dotenv()) # read local .env file
+print(os.getenv('OPENAI_API_KEY')) # Debug: Print the API key to ensure it's loaded
+
 import openai
 import gradio as gr
 import json
 from dotenv import load_dotenv, find_dotenv
 
 # Load environment variables
-load_dotenv(find_dotenv())
-openai.api_key = os.getenv('OPENAI_API_KEY')
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Load JSON data
 def load_json_data(file_path: str) -> dict:
@@ -90,8 +96,29 @@ def chatbot(user_input: str) -> str:
     # ... (existing code from the second snippet)
 
 # Create Gradio interface
+import gradio as gr
+
 def create_chatbot_interface() -> None:
-    iface = gr.Interface(
+    """
+    Create and launch the Gradio interface for the chatbot.
+    """
+    # Load JSON data
+    try:
+        faq_data = load_json_data('faqs.json')
+        property_info = load_json_data('property_info.json')
+        guest_preferences = load_json_data('guest_preferences.json')
+        knowledge_base = load_json_data('knowledge_base.json')
+    except TypeError as e:
+        raise ValueError("Failed to load JSON data. Please ensure data files are present and properly formatted.") from e
+
+    # Set up OpenAI API key
+    api_key: str = os.getenv("OPENAI_API_KEY")
+    if api_key is None:
+        raise ValueError("OPENAI_API_KEY environment variable is not set.")
+    openai.api_key = api_key
+
+    # Create the Gradio interface
+    iface: gr.Interface = gr.Interface(
         fn=chatbot,
         inputs=gr.inputs.Textbox(lines=7, placeholder="Enter your message here..."),
         outputs="text",
@@ -99,7 +126,13 @@ def create_chatbot_interface() -> None:
         description="Ask me anything related to your stay at Zo World!",
         theme="huggingface"
     )
-    iface.launch()
+
+    # Launch the interface
+    try:
+        iface.launch()
+    except Exception as e:
+        raise e
 
 if __name__ == "__main__":
     create_chatbot_interface()
+
