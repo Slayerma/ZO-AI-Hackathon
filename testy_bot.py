@@ -109,7 +109,7 @@ def create_chatbot_interface() -> None:
         raise ValueError("Failed to load JSON data. Please ensure data files are present and properly formatted.") from e
 
     # Set up OpenAI API key
-    api_key: str = os.getenv('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')
+    api_key: str = os.getenv('Insert The openAI key here')
     if api_key is None:
         raise ValueError("OPENAI_API_KEY environment variable is not set.")
     openai.api_key = api_key
