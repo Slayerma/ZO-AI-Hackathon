@@ -20,6 +20,20 @@ def load_json_data(file_path: str) -> dict:
     with open(file_path, 'r') as f:
         return json.load(f)
 
+import openai
+import gradio as gr
+import json
+from dotenv import load_dotenv, find_dotenv
+
+# Load environment variables
+load_dotenv(find_dotenv())
+openai.api_key = os.getenv('OPENAI_API_KEY')
+
+# Load JSON data
+def load_json_data(file_path: str) -> dict:
+    with open(file_path, 'r') as f:
+        return json.load(f)
+
 # Load necessary data
 faq_data = load_json_data('faqs.json')
 property_info = load_json_data('property_info.json')
@@ -98,6 +112,7 @@ def chatbot(user_input: str) -> str:
 # Create Gradio interface
 import gradio as gr
 
+# Create Gradio interface
 def create_chatbot_interface() -> None:
     """
     Create and launch the Gradio interface for the chatbot.
@@ -118,7 +133,8 @@ def create_chatbot_interface() -> None:
     openai.api_key = api_key
 
     # Create the Gradio interface
-    iface: gr.Interface = gr.Interface(
+    iface: gr.Interface = gr.Interface()
+    iface = gr.Interface(
         fn=chatbot,
         inputs=gr.inputs.Textbox(lines=7, placeholder="Enter your message here..."),
         outputs="text",
@@ -126,12 +142,7 @@ def create_chatbot_interface() -> None:
         description="Ask me anything related to your stay at Zo World!",
         theme="huggingface"
     )
-
-    # Launch the interface
-    try:
-        iface.launch()
-    except Exception as e:
-        raise e
+    iface.launch()
 
 if __name__ == "__main__":
     create_chatbot_interface()
